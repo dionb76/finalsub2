@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Electronica</title>
+    <link rel="stylesheet" href="styles.css">
+    <div class="navbar">
+        <a href="index.html">Home Page</a>
+        <a href="mobile.html">Mobile Phones</a>
+        <a href="laptops.html">Laptops and Computers</a>
+        <a href="prices.html">Prices</a>
+    </div>
+</head>
+<body>
+<h2>Contact Us</h2>
+<section class="container5">
+    <h2>Kindly share your comments and feedbacks</h2><br>
+    <p>So we know where we shopuld improve.</p>
+</section>
+
+<div class="form-container">
+    <form name="feedbackForm" onsubmit="return validateForm()" method="post">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Feedback:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+<script>
+    function validateForm() {
+        var firstName = document.forms["feedbackForm"]["firstName"].value;
+        var lastName = document.forms["feedbackForm"]["lastName"].value;
+        var phoneNumber = document.forms["feedbackForm"]["phoneNumber"].value;
+        var email = document.forms["feedbackForm"]["email"].value;
+        var message = document.forms["feedbackForm"]["message"].value;
+
+        // Validate name: no numbers or special characters
+        if (/[^a-zA-Z -]/.test(firstName) || /[^a-zA-Z -]/.test(lastName)) {
+            alert("Name should not contain numbers or special characters.");
+            return false;
+        }
+
+        // Validate email format
+        if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+            alert("You have entered an invalid email address!");
+            return false;
+        }
+
+        // Validate phone number: exactly 10 digits
+        if (phoneNumber.length != 10 || /[^0-9]/.test(phoneNumber)) {
+            alert("Phone number must be 10 digits.");
+            return false;
+        }
+
+        // If all validations pass, show success message and redirect
+        alert("Message has been sent successfully!");
+        window.location.href = 'index.html'; // Redirect to homepage
+        return false; // Prevent default form submission behavior
+    }
+</script>
+<p>Introduction: Welcome to Electronica, your one-stop shop for all your electronic needs. We pride ourselves on offering a wide range of high-quality electronics at competitive prices, ensuring that our customers have access to the latest and greatest technology on the market.
+
+    Our Mission: At Electronica, our mission is simple - to provide our customers with top-notch electronics that enhance their lives and keep them connected in this fast-paced digital world. We strive to offer a seamless shopping experience, excellent customer service, and products that meet the highest standards of quality and innovation.
+    
+    Our Products: From smartphones and laptops to smart home devices and audio equipment, Electronica has everything you need to stay ahead in the tech game. We carefully curate our product selection to include only the most reputable brands and cutting-edge technologies, ensuring that you get the best value for your money.</p>
+</body>
+</html>
